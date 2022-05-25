@@ -56,11 +56,15 @@ catalyst_node::catalyst_node(std::vector<double> &x,
     // the second name is required but not set so one can use anything
     // this follows the structured pattern 
     // https://llnl-conduit.readthedocs.io/en/latest/blueprint_mesh.html#:~:text=optional%2C%20default%20%3D%20%7B0%2C0%2C0%7D)-,structured,-%3A%20An%20implicit%20topology
-    data_node["topologies/topo/type"]= "unstructured";
-    data_node["topologies/topo/coordset"]= "coords";
-    data_node["topologies/topo/elements/shape"]="tri";
+    data_node["topologies/mesh/type"]= "unstructured";
+    data_node["topologies/mesh/coordset"]= "coords";
+    data_node["topologies/mesh/elements/shape"]="tri";
     
-    data_node["topologies/topo/elements/connectivity"].set(&p.front(), p.size());
+    data_node["topologies/mesh/elements/connectivity"].set(&p.front(), p.size());
+
+    data_node["fields/p/association"].set("vertex");
+    data_node["fields/p/topology"].set("mesh");
+    data_node["fields/p/values"].set(&p.front(), p.size());
     // 3 (0,0)-0 (1,0)-1 (2,1)-2
     // 021
 

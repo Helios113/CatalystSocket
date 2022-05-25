@@ -29,10 +29,10 @@ void ExecuteCatalyst(catalyst_node &obj)
 
 	// set the cycle property of the node
 	//std::cout<<*obj.getCycle()<<std::endl;
-	(*work_node).set_path_int64("catalyst/state/cycle",*(obj.getCycle()));
+	(*work_node)["catalyst/state/cycle"] = *obj.getCycle();
 	//(*work_node)["catalyst/state/timestep"]  = *obj.getCycle();
 	// set the time property of the node
-	(*work_node).set_path_float64("catalyst/state/time",*(obj.getTime()));
+	(*work_node)["catalyst/state/time"] = *obj.getTime();
 	// conduit_node_set_path_float64(node, "catalyst/state/time", obj.getTime());
 
 	// set the type of the data
@@ -47,7 +47,7 @@ void ExecuteCatalyst(catalyst_node &obj)
 	// call catalyst and pass the populated conduit node
 	// change the cpp node to a c node
 	catalyst_execute(work_node);
-
+	
 	// destroy the populated node once catalyst is done
 	// if I construct my nodes correctly I can skip this new creation
 	// and directly pass the node to catalyst
