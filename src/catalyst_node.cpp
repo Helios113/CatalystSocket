@@ -62,9 +62,11 @@ catalyst_node::catalyst_node(std::vector<double> &x,
     
     data_node["topologies/mesh/elements/connectivity"].set(&p.front(), p.size());
 
+    data_node["topologies/mesh/type"]= "unstructured"; 
+    
     data_node["fields/p/association"].set("vertex");
     data_node["fields/p/topology"].set("mesh");
-    data_node["fields/p/values"].set(&p.front(), p.size());
+    data_node["fields/p/values"].set(&x.front(), x.size());
     // 3 (0,0)-0 (1,0)-1 (2,1)-2
     // 021
 

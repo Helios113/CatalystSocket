@@ -17,21 +17,36 @@ int main(int argc, char *argv[])
 
         for(int j = 0; j < totalElements;j++)
         {
-            z.push_back(j*1.0+i);
-            z.push_back(j*1.0+i);
-            z.push_back(j*1.0+i);
+            z.push_back(j*1.0+i); //0
+            z.push_back(j*1.0+i); //1
+            z.push_back(j*1.0+i); //2
+            z.push_back(j*1.0+1+i);//3
             // x.push_back(j*1.0);
 
             y.push_back((i+1)*0.0);
             y.push_back((i+1)*1.0);
+            y.push_back((i+1)*0.0);
             y.push_back((i+1)*0.0);
             // y.push_back(0.0);
 
             x.push_back(0.0+i);
             x.push_back(1.0+i);
             x.push_back(2.0+i);
+            x.push_back(2.0+i);
 
             p.push_back(0+3*j);
+            p.push_back(1+3*j);
+            p.push_back(2+3*j);
+
+            p.push_back(0+3*j);
+            p.push_back(1+3*j);
+            p.push_back(3+3*j);
+
+            p.push_back(0+3*j);
+            p.push_back(3+3*j);
+            p.push_back(2+3*j);
+
+            p.push_back(3+3*j);
             p.push_back(1+3*j);
             p.push_back(2+3*j);
         }
